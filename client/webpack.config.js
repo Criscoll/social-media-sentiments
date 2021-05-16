@@ -3,7 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.ts',
+    devServer: {
+        // Serve index.html as the base
+        contentBase: path.resolve(__dirname, 'public'),
+        port: 3000,
+        // Enable compression
+        compress: true,
+        // Enable hot reloading
+        hot: true,
+        // Public path is root of content base
+        publicPath: '/',
+    },
     module: {
         rules: [
             {
@@ -27,7 +39,7 @@ module.exports = {
         ],
     },
     output: {
-        publicPath: path.resolve(__dirname, 'public'),
+        publicPath: '/public',
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public'),
     },

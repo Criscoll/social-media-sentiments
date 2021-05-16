@@ -1,2 +1,12 @@
 import '../styles/main.scss';
-console.log('hello wooooorld');
+import { tsParticles } from "tsparticles";
+
+
+tsParticles
+    .loadJSON("tsparticles", "/tsparticles.json")
+    .then((container) => {
+        console.log("callback - tsparticles config loaded");
+    })
+    .catch((error) => {
+        console.error(error);
+    });
